@@ -1,0 +1,80 @@
+{% extends 'layouts/madang.html.twig' %}
+
+{% block title %}Ten Tu Dieta{% endblock %}
+
+{% block banner %}
+        <!-- ============== About us Banner starts ============== -->
+      <!---  <section class="banner banner-image about-us-banner">
+            <div class="bannerwrap">
+                <figure><img src="" alt="Abut us Banner" /></figure>
+            </div>
+        </section> 
+        <!-- ============== About us Baner ends ============== -->
+{% endblock %}
+
+{% block body %}
+    
+
+       
+            <!-- ============== About us starts ============== -->
+            <section class="block about-us-block">
+                <div class="container">
+
+                    <!-- == whole about us content wrap starts == -->
+                    <div class="about-us-content">
+                        <div class="text-center top-description wow fadeInUp">
+                            <h2 class="text-sp text-lt">¿QUIENES SOMOS?</h2>
+                            <p style="margin-bottom: 15px !important;text-align: justify !important;">Somos Maka y Jenn, Lic en nutrición que juntas decidimos fundar “Ten Tu Dieta” #Ttd, hemos notado una necesidad y deseamos brindar un servicio profesional, confiable y práctico.</p>
+                            <p style="margin-bottom: 1px !important;text-align: justify !important;">Si bien, desde nuestra formación, se nos ha enseñado que las dietas on line no eran del todo confiable, probablemente porque no sabemos quiénes están detrás de ellas y muchas personas han tenido malas experiencias. PERO, debemos reconocer que en lo tiempos de hoy los servicios on line están a la vanguardia.</p>
+                            <p><h5>Por eso reunimos nutricionistas, psicólogos y coaches, para poder brindarte un servicio profesional integral en un mismo Programa y en la comodidad de tu teléfono móvil.</h5></p>
+                        </div>
+
+                        <!-- About us image grid block starts -->
+                        <div class="row image-grid-row">
+                            <div class="col-xs-12 col-sm-5 big-image wow fadeInRight">
+                                <figure><a href="#"><img class="img-responsive" src="{{ asset('images/quienessomos/equipo-grande.png') }}" alt="About image" /></a></figure>
+                            </div>
+                            <div class="col-xs-12 col-sm-7 small-image-group wow fadeInLeft">
+                                <div class="row">
+                                    <div class="col-xs-6 col-sm-6 small-image-wrap wow fadeInUp">
+                                        <figure><a href="#"><img class="img-responsive" src="{{ asset('images/quienessomos/1.png') }}" alt="About Image 1" /></a></figure>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 small-image-wrap wow fadeInUp">
+                                        <figure><a href="#"><img class="img-responsive" src="{{ asset('images/quienessomos/2.png') }}" alt="About Image 2" /></a></figure>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 small-image-wrap wow fadeInUp">
+                                        <figure><a href="#"><img class="img-responsive" src="{{ asset('images/quienessomos/3.png') }}" alt="About Image 3" /></a></figure>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 small-image-wrap wow fadeInUp">
+                                        <figure><a href="#"><img class="img-responsive" src="{{ asset('images/quienessomos/4.png') }}" alt="About Image 4" /></a></figure>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <!-- About us image gallery block ends -->
+
+                        <!-- 2 columns paragraph starts -->
+                        <div class="text-center top-description wow fadeInUp">
+                            <p><h3 style="align: center;">¿QUÉ TE OFRECEMOS?</h3></p>
+                            <p style="margin-bottom: 15px !important;text-align: justify !important;">Es un servicio On line orientado a guiarte a desarrollar hábitos saludables que te lleven a disfrutar del confort y la comodidad de tu cuerpo a través de un descenso de peso saludable.</p>
+                            <p style="margin-bottom: 15px !important;text-align: justify !important;">Iniciarás un proceso de cambio desde tu interior, haciéndote consciente de tu apetito y saciedad natural reconstituyendo tu relación con los alimentos a través de herramientas del Coaching Nutricional (en el caso de haber contratado).</p>
+                            <p style="margin-bottom: 15px !important;text-align: justify !important;">La finalidad de Ttd es que puedas aprender cómo llevar día a día una alimentación más saludable e inteligente; donde encontrarás acompañamiento de Lic. En nutrición y psicólogas certificadas con las cuales podrás interactuar por la plataforma virtual, recibirás un feedback semanal y podrás comunicarte con directamente.</p>
+                            <p style="margin-bottom: 15px !important;text-align: justify !important;">El servicio que te ofrecemos apunta a tener la misma o aún mejor calidad que la atención que puedas tener en un consultorio, aportando todos los beneficios que tendrías al poder ser totalmente independiente.</p>
+                            <p><h4>El momento es ahora, el día es hoy y la hora es ya! Abandoná las excusas, y no esperes a un "lunes" que nunca llega!</h4></p>
+                        </div>
+                        <div class="text-center center-btn wow flipInX">
+                            <a href="{{ url('planes') }}" class="btn border-btn-x-big hvr-wobble-horizontal">Ver Planes</a>
+                            <a href="{{ url('equipo') }}" class="btn border-btn-x-big hvr-wobble-horizontal">Conocer al Equipo</a>
+                        </div>
+                        <!-- 2 columns paragraph ends -->
+
+                    </div>
+                    <!-- == whole about us content wrap starts == -->
+                </div>
+
+                
+            </section>
+            <!-- ============== About us ends ============== -->
+       
+{% endblock %}

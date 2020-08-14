@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<!-- 
+Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 4
+Author: KeenThemes
+Website: http://www.keenthemes.com/
+Contact: support@keenthemes.com
+Follow: www.twitter.com/keenthemes
+Dribbble: www.dribbble.com/keenthemes
+Like: www.facebook.com/keenthemes
+Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+Renew Support: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+-->
+<html lang="en" >
+	<!-- begin::Head -->
+	<head>
+		<meta charset="utf-8" />
+		<title>
+			Metronic | Login Page - 3
+		</title>
+		<meta name="description" content="Latest updates and statistic charts">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!--begin::Web font -->
+		<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+		<script>
+          WebFont.load({
+            google: {"families":["Poppins:300,400,500,600,700","Roboto:300,400,500,600,700"]},
+            active: function() {
+                sessionStorage.fonts = true;
+            }
+          });
+		</script>
+		<!--end::Web font -->
+        <!--begin::Base Styles -->
+		<link href="{{ asset('vendors/base/vendors.bundle.css') }}" rel="stylesheet" type="text/css" />
+		<link href="{{ asset('demo/default/base/style.bundle.css') }}" rel="stylesheet" type="text/css" />
+		<!--end::Base Styles -->
+		<link rel="shortcut icon" href="{{ asset('demo/default/media/img/logo/favicon.ico') }}" />
+	</head>
+	<!-- end::Head -->
+    <!-- end::Body -->
+	<body class="m--skin- m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default"  >
+		<!-- begin:: Page -->
+		<div class="m-grid m-grid--hor m-grid--root m-page">
+			<div class="m-grid__item m-grid__item--fluid m-grid m-grid--hor m-login m-login--signin m-login--2 m-login-2--skin-2" id="m_login" style="background-image: url(../../../assets/app/media/img//bg/bg-3.jpg);">
+				<div class="m-grid__item m-grid__item--fluid	m-login__wrapper">
+					<div class="m-login__container">
+						<div class="m-login__logo">
+							<a href="#">
+								<img alt="Logo TenTuDieta" src="{{ asset('images/logo-ttd.png') }}" style="width: 30%;">
+							</a>
+						</div>
+						<div class="m-login__signin">
+							<div class="m-login__head">
+								<h3 class="m-login__title">
+									Registrarse
+								</h3>
+							</div>
+                            {{ form_start(form) }}
+                                <div class="form-group m-form__group">
+                                    {{ form_label(form.nombre, 'Nombre') }}
+                                    {{ form_errors(form.nombre) }}
+                                    {{ form_widget(form.nombre, {'attr': {'class': 'form-control m-input'}}) }}
+                                </div>
+								<div class="form-group m-form__group">
+                                    {{ form_label(form.apellido, 'Apellido') }}
+                                    {{ form_errors(form.apellido) }}
+                                    {{ form_widget(form.apellido, {'attr': {'class': 'form-control m-input'}}) }}
+                                </div>
+								<div class="form-group m-form__group">
+                                    {{ form_label(form.unGenero, 'Genero') }}
+                                    {{ form_errors(form.unGenero) }}
+                                    {{ form_widget(form.unGenero, {'attr': {'class': 'form-control m-input'}}) }}
+                                </div>
+								<div class="form-group m-form__group">
+                                    {{ form_label(form.dni, 'Dni') }}
+                                    {{ form_errors(form.dni) }}
+                                    {{ form_widget(form.dni, {'attr': {'class': 'form-control m-input'}}) }}
+                                </div>
+								<div class="form-group m-form__group">
+                                    {{ form_label(form.correo, 'Correo') }}
+                                    {{ form_errors(form.correo) }}
+                                    {{ form_widget(form.correo, {'attr': {'class': 'form-control m-input'}}) }}
+                                </div>
+								<div class="form-group m-form__group">
+                                    {{ form_label(form.password, 'Contraseña') }}
+                                    {{ form_errors(form.password) }}
+                                    {{ form_widget(form.password, {'attr': {'class': 'form-control m-input'}}) }}
+                                </div>
+								<div class="form-group m-form__group">
+                                    {{ form_label(form.telefono, 'Telefono') }}
+                                    {{ form_errors(form.telefono) }}
+                                    {{ form_widget(form.telefono, {'attr': {'class': 'form-control m-input'}}) }}
+                                </div>
+								<div class="form-group m-form__group">
+                                    {{ form_label(form.mayor, 'Declaro que soy mayor de edad') }}
+                                    {{ form_errors(form.mayor) }}
+                                    {{ form_widget(form.mayor, {'attr': {'class': 'form-control m-input'}}) }}
+                                </div>
+								<div class="form-group m-form__group">
+                                    {{ form_label(form.aceptacion, 'Declaro que soy acepto los Terminos y Condiciones') }}
+									<a href="" class="" data-toggle="modal" data-target="#m_modal_1">- <strong>Leer</strong></a>
+                                    {{ form_errors(form.aceptacion) }}
+                                    {{ form_widget(form.aceptacion, {'attr': {'class': 'form-control m-input'}}) }}
+                                </div>
+                            {{ form_end(form) }}
+							
+						</div>
+
+						<div class="modal fade" id="m_modal_1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+							<div class="modal-dialog modal-dialog-centered" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="exampleModalLongTitle">
+											<strong>Terminos y Condiciones</strong>
+										</h5>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">
+												&times;
+											</span>
+										</button>
+									</div>
+									<div class="modal-body">
+										<p>El equipo de Ten Tu Dieta tiene como objetivo incentivarte a que lleves una alimentación saludable. En ningún caso se trata de un diagnóstico médico o de un tratamiento médico en línea.</p>
+										<p>Desde Ten Tu Dieta te recomendamos visitar a un médico antes de iniciar un proceso de adelgazamiento, un plan de entrenamiento físico o un plan de alimentación. Es la única manera de que puedas asegurar tu salud.</p>
+										<p>Es tu responsabilidad la veracidad de la información y de todos los datos brindados a los profesionales de TTD, teniendo total conciencia de que se indicará el Plan Alimentario y las recomendaciones a partir de ellos.</p>
+										<p>Para realizar el acompañamiento (controles por parte de los profesionales) nos comunicaremos con Ud. luego de haber realizado pago, para informarte el usuario, tener una breve entrevista e indicarte los pasos a seguir para descargar la aplicación a tu teléfono móvil. </p>
+										<p>Dentro de las secciones del sitio web de Ttd, encontrarás distintos programas que integran el Método Ttd, cada uno con diferentes características. Por ello, te recomendamos leer toda la información del servicio prestado y que puedas elegir el programa que mejor se adecue a tus necesidades.</p>
+										<p>Declaro estar médicamente apto para iniciar el tratamiento nutricional con Ten Tu Dieta (en cualquiera de sus programas) y libero a las profesionales de Ten Tu Dieta, a sus participantes, voluntarios, sponsors, auspiciantes y representantes, de todo daño, pérdida y lesión causados por la mala práctica o utilización del servicio y desligo de todo reclamo y responsabilidad de cualquier tipo a los actores anteriormente mencionados. A demás,  Ttd se reserva al derecho de autoría donde la información y/o tratamiento otorgado es exclusivo de la persona contratante.</p>
+										<p>Me considero totalmente responsable de la veracidad de la información y de los datos brindados a Ten Tu Dieta.</p>             
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						
+						<div class="m-login__account">
+							<span class="m-login__account-msg">
+								Ya tienes una Cuenta
+							</span>
+							&nbsp;&nbsp;
+							<a href="javascript:;" id="m_login_signup" class="m-link m-link--light m-login__account-link">
+								Inicia Sesión
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- end:: Page -->
+    	<!--begin::Base Scripts -->
+		<script src="{{ asset('vendors/base/vendors.bundle.js') }}" type="text/javascript"></script>
+		<script src="{{ asset('demo/default/base/scripts.bundle.js') }}" type="text/javascript"></script>
+		<!--end::Base Scripts -->   
+        <!--begin::Page Snippets -->
+		<script src="{{ asset('snippets/pages/user/login.js') }}" type="text/javascript"></script>
+		<!--end::Page Snippets -->
+	</body>
+	<!-- end::Body -->
+</html>

@@ -1,0 +1,69 @@
+{% extends 'layouts/metronic.html.twig' %}
+
+{% block title %}Mediciones - Nuevo{% endblock %}
+
+{% block body %}
+<div class="m-subheader ">
+        <div class="d-flex align-items-center">
+            <div class="mr-auto">
+                <h3 class="m-subheader__title  m-subheader__title--separator">
+                    Crear Mediciones
+                </h3>
+            </div>
+        </div>
+    </div>
+    <div class="m-content">
+        <!--Begin::Section-->
+        <div class="row">
+            <div class="col-xl-12">
+                    <div class="m-portlet m-portlet--bordered-semi m-portlet--full-height ">
+                            <div class="m-portlet__head">
+                                <div class="m-portlet__head-caption">
+                                    <div class="m-portlet__head-title">
+                                        <h3 class="m-portlet__head-text">
+                                            Cargue los valores en los campos de texto
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="m-portlet__head-tools">
+                                    <a href="{{ url('ficha') }}" class="btn btn-outline-danger m-btn m-btn--icon m- m-btn--outline-2x">Cancelar <i class="la la-times-circle"></i></a>
+                                </div>
+                            </div>
+                            <div class="m-portlet__body">
+                                <!--begin::Section-->
+                               
+                                        <div class="m-section">
+                                                <div class="m-section__content">
+                                                    {{ form_start(form) }}
+                                                        <div class="form-group m-form__group">
+                                                            {{ form_label(form.altura, 'Altura en centrimetros') }}
+                                                            {{ form_errors(form.altura) }}
+                                                            {{ form_widget(form.altura, {'attr': {'class': 'form-control m-input'}}) }}
+                                                        </div>
+                                                        <div class="form-group m-form__group">
+                                                            {{ form_label(form.peso, 'Peso en kilogramos') }}
+                                                            {{ form_errors(form.peso) }}
+                                                            {{ form_widget(form.peso, {'attr': {'class': 'form-control m-input'}}) }}
+                                                        </div>
+                                                        <div class="form-group m-form__group">
+                                                            {{ form_label(form.pesoHabitual, 'Peso Habitual en kilogramos') }}
+                                                            {{ form_errors(form.pesoHabitual) }}
+                                                            {{ form_widget(form.pesoHabitual, {'attr': {'class': 'form-control m-input'}}) }}
+                                                        </div>
+                                                        <div class="form-group m-form__group">
+                                                            {{ form_label(form.enAnios, 'Timpo sostenido del peso en años') }}
+                                                            {{ form_errors(form.enAnios) }}
+                                                            {{ form_widget(form.enAnios, {'attr': {'class': 'form-control m-input'}}) }}
+                                                        </div>
+                                                    {{ form_end(form) }}
+                                                </div>
+                                        </div>
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+                                            
+    
+{% endblock %}

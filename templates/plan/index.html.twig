@@ -1,0 +1,92 @@
+{% extends 'layouts/metronic.html.twig' %}
+
+{% block title %}Planes{% endblock %}
+
+{% block body %}
+<div class="m-subheader ">
+        <div class="d-flex align-items-center">
+            <div class="mr-auto">
+                <h3 class="m-subheader__title  m-subheader__title--separator">
+                    Planes
+                </h3>
+            </div>
+        </div>
+    </div>
+    <div class="m-content">
+        <!--Begin::Section-->
+    {% if app.user.rol.rol == "ROLE_ADMIN"  %}
+        <div class="row">
+            <div class="col-xl-12">
+                    <div class="m-portlet m-portlet--bordered-semi m-portlet--full-height ">
+                            <div class="m-portlet__head">
+                                <div class="m-portlet__head-caption">
+                                    <div class="m-portlet__head-title">
+                                        <h3 class="m-portlet__head-text">
+                                           Acceso de Administrador 
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="m-portlet__head-tools">
+                                   <a href="{{ url('plan_nuevo') }}" class="btn btn-outline-accent m-btn m-btn--icon m-btn--outline-2x">Crear Plan <i class="la la-plus-circle"></i></a>
+                                </div>
+                            </div>
+                            <div class="m-portlet__body">
+                                <!--begin::Section-->
+                               
+                                        
+                                        
+                            </div>
+                    </div>
+            </div>
+        </div>
+    {% endif %}
+{% if (registros | length)>0 %}
+    {% for preferencia in mercadopago.preferencias %}
+        {% for item in preferencia.items %}
+        <div class="row">
+            <div class="col-xl-12">
+                    <div class="m-portlet m-portlet--bordered-semi m-portlet--full-height ">
+                            <div class="m-portlet__head">
+                                <div class="m-portlet__head-caption">
+                                    <div class="m-portlet__head-title">
+                                        <h3 class="m-portlet__head-text">
+                                           
+                                                {{ item.title }}
+                                          
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="m-portlet__head-tools">
+                                    {% if app.user.rol.rol == "ROLE_ADMIN"  %}
+                                    {% for plan in registros %}
+                                        {% if plan.nombre == item.title %}
+                                            <a href="{{ url('plan_editar', {'id': plan.id}) }}" class="btn btn-outline-warning m-btn m-btn--icon m-btn--outline-2x">Editar Plan <i class="fa fa-edit"></i></a>
+                                         {% endif %}
+                                    {% endfor %}
+                                    {% endif %}
+                                    <a href="{{ url('plan_nuevo') }}" class="btn btn-outline-primary m-btn m-btn--icon m-btn--outline-2x">Leer Más<i class="la la-plus-circle"></i></a>
+                                </div>
+                            </div>
+                            <div class="m-portlet__body">
+                                <!--begin::Section-->
+                                
+                                    {% for plan in registros %}
+                                        {% if plan.nombre == item.title %}
+                                            <p style="white-space: pre-line;">{{ plan.resumen }}</p>
+                                            <p><strong>$ {{ plan.valor }}</strong></p>
+                                        {% endif %}
+                                    {% endfor %}
+                               
+                                    
+                                      
+                            </div>
+                    </div>
+            </div>
+        </div>
+         {% endfor %}
+    {% endfor %}
+{% endif %}    
+
+
+    </div>
+{% endblock %}

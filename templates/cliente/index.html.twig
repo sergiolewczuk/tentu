@@ -1,0 +1,133 @@
+{% extends 'layouts/metronic.html.twig' %}
+
+{% block title %}Clientes{% endblock %}
+
+{% block body %}
+<div class="m-subheader ">
+        <div class="d-flex align-items-center">
+            <div class="mr-auto">
+                <h3 class="m-subheader__title  m-subheader__title--separator">
+                    Clientes
+                </h3>
+            </div>
+        </div>
+    </div>
+    <div class="m-content">
+        <!--Begin::Section-->
+        <div class="row">
+            <div class="col-xl-12">
+                    <div class="m-portlet m-portlet--bordered-semi m-portlet--full-height ">
+                            <div class="m-portlet__head">
+                                <div class="m-portlet__head-caption">
+                                    <div class="m-portlet__head-title">
+                                        <h3 class="m-portlet__head-text">
+                                            Clientes disponibles en el sistema
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="m-portlet__head-tools">
+                                
+                                </div>
+                            </div>
+                            <div class="m-portlet__body">
+                                
+                                <!-- Begin Datatable HTML -->
+                                <div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30">
+									<div class="row align-items-center">
+										<div class="col-xl-12 order-2 order-xl-1">
+											<div class="form-group m-form__group row align-items-center">
+												<div class="col-md-12">
+													<div class="m-input-icon m-input-icon--left">
+														<input type="text" class="form-control m-input" placeholder="Buscar..." id="generalSearch">
+														<span class="m-input-icon__icon m-input-icon__icon--left">
+															<span>
+																<i class="la la-search"></i>
+															</span>
+														</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										
+									</div>
+								</div>
+								<!--end: Search Form -->
+		                        <!--begin: Datatable -->
+								<table class="m-datatable" id="html_table" width="100%">
+									<thead>
+										<tr>
+											<th title="codigo">
+												Codigo
+											</th>
+                                            <th title="estado">
+												Estado
+											</th>
+                                            <th title="estado ficha">
+												Estado Ficha
+											</th>
+                                            <th title="dni">
+												Dni
+											</th>
+                                            <th title="nombre">
+												Nombre
+											</th>
+                                            <th title="apellido">
+												Apellido
+											</th>
+                                            <th title="telefono">
+												Telefono
+											</th>
+                                            <th title="plan">
+												Plan
+											</th>
+                                            <th title="plan">
+												Operaciones
+											</th>
+										</tr>
+									</thead>
+									<tbody>
+											{% if (registros | length)>0 %}
+                                                {% for registro in registros %}
+                                                <tr>
+                                                    <td>
+                                                        {{ registro.id }}
+                                                    </td>
+                                                    <td>
+                                                        {{ registro.unEstado.nombre }}
+                                                    </td>
+                                                    <td>
+                                                        {{ registro.unaFicha.unEstado.nombre }}
+                                                    </td>
+                                                    <td>
+                                                        {{ registro.dni }}
+                                                    </td>
+                                                    <td>
+                                                        {{ registro.nombre }}
+                                                    </td>
+                                                    <td>
+                                                        {{ registro.apellido }}
+                                                    </td>
+                                                    <td>
+                                                        {{ registro.telefono }}
+                                                    </td>
+                                                    <td>
+                                                        plan
+                                                    </td>
+                                                    <td>
+                                                        <a href="{{ url('excel', {'id': registro.id }) }}" class="btn btn-accent m-btn m-btn--icon btn-block">Excel <i class="fa flaticon-file-1"></i></a>
+                                                        <a href="{{ url('cliente_edit', {'id': registro.id}) }}" class="btn btn-warning m-btn m-btn--icon btn-block">Editar <i class="fa fa-edit"></i></a>
+                                                        <a href="{{ url('cliente_activar', {'id': registro.id}) }}" class="btn btn-primary m-btn m-btn--icon btn-block">Activar <i class="fa fa-edit"></i></a>
+                                                        <a href="{{ url('cliente_borrar', {'id' : registro.id}) }}" class="btn btn-danger m-btn m-btn--icon btn-block">Borrar <i class="fa fa-trash"></i></a> 
+                                                    </td>
+                                                </tr>
+                                                {% endfor %}
+                                            {% endif %}
+                                    </tbody>
+                                </table>
+								<!--end: Datatable -->
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

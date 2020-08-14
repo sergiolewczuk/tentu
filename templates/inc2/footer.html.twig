@@ -1,0 +1,53 @@
+{% block footer %}
+    <!-- ============== footer block starts ============== -->
+        <footer>
+            <div class="top-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-4 footer-logo">
+                            <figure><a href="#"><img  class="img-responsive" src="{{ asset('images/footer/logo-ttd-2.png') }}" alt="Logo Ten tu Dieta" /></a></figure>
+                        </div>
+                        <div class="col-xs-12 col-sm-2 footer-social-links pull-right hidden-md hidden-lg hidden-xs">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook hvr-wobble-top"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter hvr-wobble-top"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram hvr-wobble-top"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 footer-menu">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-3 footer-links-col">
+                                    <span>Nostros</span>
+                                    <ul>
+                                        <li><a href="{{ url('quienes_somos') }}">Quienes Somos</a></li>
+                                        <li><a href="{{ url('equipo') }}">Equipo</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-12 col-sm-3 footer-links-col">
+                                    <span>Planes</span>
+                                    <ul>
+                                        <li><a href="{{ url('planes') }}">Planes Nuticionales</a></li>
+                                    </ul>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-2 footer-social-links pull-right hidden-sm">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook hvr-wobble-top"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter hvr-wobble-top"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram hvr-wobble-top"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bottom-footer">
+                <div class="container">
+                    <div class="copyright-text text-center">&copy; 2014-2016 Madang, Inc. ALL RIGHT RESERVED.</div>
+                </div>
+            </div>
+        </footer>
+        <!-- ============== footer block starts ============== -->
+{% endblock %}

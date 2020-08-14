@@ -1,0 +1,79 @@
+{% extends 'layouts/metronic.html.twig' %}
+
+{% block title %}Historia Personal - Editar{% endblock %}
+
+{% block body %}
+<div class="m-subheader ">
+        <div class="d-flex align-items-center">
+            <div class="mr-auto">
+                <h3 class="m-subheader__title  m-subheader__title--separator">
+                    Crear Historia Personal
+                </h3>
+            </div>
+        </div>
+    </div>
+    <div class="m-content">
+        <!--Begin::Section-->
+        <div class="row">
+            <div class="col-xl-12">
+                    <div class="m-portlet m-portlet--bordered-semi m-portlet--full-height ">
+                            <div class="m-portlet__head">
+                                <div class="m-portlet__head-caption">
+                                    <div class="m-portlet__head-title">
+                                        <h3 class="m-portlet__head-text">
+                                            Cargue los valores en los campos de texto
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="m-portlet__head-tools">
+                                    <a href="{{ url('ficha') }}" class="btn btn-outline-danger m-btn m-btn--icon m- m-btn--outline-2x">Cancelar <i class="la la-times-circle"></i></a>
+                                </div>
+                            </div>
+                            <div class="m-portlet__body">
+                                <!--begin::Section-->
+                               
+                                        <div class="m-section">
+                                                <div class="m-section__content">
+                                                    {{ form_start(form) }}
+                                                        <div class="form-group m-form__group">
+                                                            {{ form_label(form.unaFuncionIntestinal, 'Funcion Intestinal') }}
+                                                            {{ form_errors(form.unaFuncionIntestinal) }}
+                                                            {{ form_widget(form.unaFuncionIntestinal, {'attr': {'class': 'form-control m-input'}}) }}
+                                                        </div>
+                                                        <div class="form-group m-form__group">
+                                                            {{ form_label(form.unCiclo, 'Ciclo de Sueño') }}
+                                                            {{ form_errors(form.unCiclo) }}
+                                                            {{ form_widget(form.unCiclo, {'attr': {'class': 'form-control m-input'}}) }}
+                                                        </div>
+                                                        <div class="form-group m-form__group">
+                                                            {{ form_label(form.actividadFisica, 'Realiza alguna actividad fisica?') }}
+                                                            {{ form_errors(form.actividadFisica) }}
+                                                            {{ form_widget(form.actividadFisica, {'attr': {'class': 'form-control m-input'}}) }}
+                                                        </div>
+                                                        <div class="form-group m-form__group">
+                                                            {{ form_label(form.queActividad, 'Cual actividad fisica realiza?') }}
+                                                            {{ form_errors(form.queActividad) }}
+                                                            {{ form_widget(form.queActividad, {'attr': {'class': 'form-control m-input'}}) }}
+                                                        </div>
+                                                        <div class="form-group m-form__group">
+                                                            {{ form_label(form.cuandoCuantas, 'Cuantas veces por semana? y cuanto tiempo?') }}
+                                                            {{ form_errors(form.cuandoCuantas) }}
+                                                            {{ form_widget(form.cuandoCuantas, {'attr': {'class': 'form-control m-input'}}) }}
+                                                        </div>
+                                                        <div class="form-group m-form__group">
+                                                            {{ form_label(form.actividadLaboral, '') }}
+                                                            {{ form_errors(form.actividadLaboral) }}
+                                                            {{ form_widget(form.actividadLaboral, {'attr': {'class': 'form-control m-input'}}) }}
+                                                        </div>
+                                                    {{ form_end(form) }}
+                                                </div>
+                                        </div>
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+                                            
+    
+{% endblock %}

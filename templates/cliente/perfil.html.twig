@@ -1,0 +1,49 @@
+{% extends 'layouts/metronic.html.twig' %}
+
+{% block title %}Mi Cuenta{% endblock %}
+
+{% block body %}
+<div class="m-subheader ">
+        <div class="d-flex align-items-center">
+            <div class="mr-auto">
+                <h3 class="m-subheader__title  m-subheader__title--separator">
+                    Mi Perfil
+                </h3>
+            </div>
+        </div>
+    </div>
+    <div class="m-content">
+        <!--Begin::Section-->
+        <div class="row">
+            <div class="col-xl-12">
+                    <div class="m-portlet m-portlet--bordered-semi m-portlet--full-height ">
+                            <div class="m-portlet__head">
+                                <div class="m-portlet__head-caption">
+                                    <div class="m-portlet__head-title">
+                                        <h3 class="m-portlet__head-text">
+                                            Hola, {{ app.user.nombre }} {{ app.user.apellido }}
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="m-portlet__head-tools">
+                                    <a href="{{ url('cliente_perfil_password')}}" class="btn btn-outline-warning m-btn m-btn--icon m-btn--outline-2x">Cambiar Contraseña <i class="fa fa-edit"></i></a>
+                                    <a href="{{ url('cliente_perfil_edit')}}" class="btn btn-outline-warning m-btn m-btn--icon m-btn--outline-2x">Editar Datos <i class="fa fa-edit"></i></a>
+                                </div>
+                            </div>
+                            <div class="m-portlet__body">
+                                <!--begin::Section-->
+                               <div class="row">
+                                    <div class="col-xl-12">
+                                        <p>Nombre: <strong>{{ app.user.nombre }}</strong></p>
+                                        <p>Apellido: <strong>{{ app.user.apellido }}</strong></p>
+                                        <p>DNI: <strong>{{ app.user.dni }}</strong></p>
+                                        <p>Correo: <strong>{{ app.user.correo }}</strong></p>
+                                        <p>Telefono: <strong>{{ app.user.telefono }}</strong></p>
+                                    </div>
+                               </div>   
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

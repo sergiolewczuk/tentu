@@ -1,0 +1,364 @@
+{% extends 'layouts/metronic.html.twig' %}
+
+{% block title %}Mi Ficha{% endblock %}
+
+{% block body %}
+<div class="m-subheader ">
+        <div class="d-flex align-items-center">
+            <div class="mr-auto">
+                <h3 class="m-subheader__title  m-subheader__title--separator">
+                    Mi Ficha -  Nº {{ user.unaFicha.id }}
+                </h3>
+            </div>
+        </div>
+    </div>
+    <div class="m-content">
+        <!--Begin::Section-->
+        <div class="row">
+            <div class="col-xl-4">
+                    <div class="m-portlet m-portlet--bordered-semi m-portlet--full-height ">
+                            <div class="m-portlet__head">
+                                <div class="m-portlet__head-caption">
+                                    <div class="m-portlet__head-title">
+                                        <h3 class="m-portlet__head-text">
+                                            Informacion Personal
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="m-portlet__head-tools">
+                                    {% if user is null %}
+                                        <a  href="{{ url('estado_ficha_nuevo')}}" class="btn btn-outline-warning m-btn m-btn--icon m-btn--outline-2x">Completar <i class="la la-plus-circle"></i></a>
+                                    {% else %}
+                                        <a  href="{{ url('estado_ficha_nuevo')}}" class="btn btn-outline-accent m-btn m-btn--icon m-btn--outline-2x">Editar <i class="la la-plus-circle"></i></a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="m-portlet__body">
+                                <!--begin::Section-->
+                               <div class="row">
+                                    <div class="col-xl-12">
+                                        <p>Nombre: <strong>{{ user.nombre }}</strong></p>
+                                        <p>Apellido: <strong>{{ user.apellido }}</strong></p>
+                                        <p>DNI: <strong>{{ user.dni }}</strong></p>
+                                        <p>Correo: <strong>{{ user.correo }}</strong></p>
+                                        <p>Telefono: <strong>{{ user.telefono }}</strong></p>
+                                    </div>
+                               </div>
+                                        
+                            </div>
+                            
+                    </div>
+            </div>
+            <div class="col-xl-8">
+                    <div class="m-portlet m-portlet--bordered-semi m-portlet--full-height ">
+                            <div class="m-portlet__head">
+                                <div class="m-portlet__head-caption">
+                                    <div class="m-portlet__head-title">
+                                        <h3 class="m-portlet__head-text">
+                                            Consulta
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="m-portlet__head-tools">
+                                    {% if user.unaFicha.unaInformacionConsulta is null %}
+                                        <a  href="{{ url('informacion_consulta_nuevo', {'id': user.unaFicha.id})}}" class="btn btn-warning m-btn m-btn--icon m-btn--outline-2x">Completar <i class="la la-plus-circle"></i></a>
+                                    {% else %}
+                                        <a  href="{{ url('informacion_consulta_editar', {'idficha': user.unaFicha.id, 'id': user.unaFicha.unaInformacionConsulta.id})}}" class="btn btn-outline-accent m-btn m-btn--icon m-btn--outline-2x">Editar <i class="la la-plus-circle"></i></a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="m-portlet__body">
+                                <!--begin::Section-->
+                               <div class="row">
+                                    <div class="col-xl-12">
+                                        {% if user.unaFicha.unaInformacionConsulta is null %}
+                                            <p>Motivo de la Consulta: <strong>Indeterminado</strong></p>
+                                            <p>Medio por el cual llego a TenTuDieta: <strong>Indeterminado</strong></p>
+                                            <p>Expectativa: <strong>Completar</strong></p>
+                                            <p>Bebe Alcohol: <strong>??</strong></p>
+                                            <p>Fumador: <strong>??</strong></p>
+                                        {% else %}
+                                            <p>Motivo de la Consulta: <strong>{{ user.unaFicha.unaInformacionConsulta.unMotivoConsulta.nombre }}</strong></p>
+                                            <p>Medio por el cual llego a TenTuDieta: <strong>{{ user.unaFicha.unaInformacionConsulta.medio }}</strong></p>
+                                            <p>Expectativa: <strong>{{ user.unaFicha.unaInformacionConsulta.expectativa }}</strong></p>
+                                            <p>Bebe Alcohol: <strong>{%  if user.unaFicha.unaInformacionConsulta.alcohol == 1 %} SI {% else %} NO {% endif %}</strong></p>
+                                            <p>Fumador: <strong>{% if user.unaFicha.unaInformacionConsulta.fumador == 1 %} SI {% else %} NO {% endif %}</strong></p>
+                                        {% endif %}
+                                    </div>
+                               </div>
+                                        
+                            </div>
+                            
+                    </div>
+            </div>
+            
+        </div>
+
+        <div class="row">
+            <div class="col-xl-8">
+                    <div class="m-portlet m-portlet--bordered-semi m-portlet--full-height ">
+                            <div class="m-portlet__head">
+                                <div class="m-portlet__head-caption">
+                                    <div class="m-portlet__head-title">
+                                        <h3 class="m-portlet__head-text">
+                                             Historia Personal
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="m-portlet__head-tools">
+                                    {% if user.unaFicha.unaHistoriaPersonal is null %}
+                                        <a  href="{{ url('historia_personal_nuevo', {'id' : user.unaFicha.id})}}" class="btn btn-warning m-btn m-btn--icon m-btn--outline-2x">Completar <i class="la la-plus-circle"></i></a>
+                                    {% else %}
+                                        <a  href="{{ url('historia_personal_editar', {'idficha': user.unaFicha.id , 'id' : user.unaFicha.unaHistoriaPersonal.id})}}" class="btn btn-outline-accent m-btn m-btn--icon m-btn--outline-2x">Editar <i class="la la-plus-circle"></i></a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="m-portlet__body">
+                                <!--begin::Section-->
+                               <div class="row">
+                                    <div class="col-xl-12">
+                                        {% if user.unaFicha.unaHistoriaPersonal is null %}
+                                            <p>Funcion Intestinal: <strong>Completar</strong></p>
+                                            <p>Cilco de Sueño: <strong>Completar</strong></p>
+                                            <p>Realiza actividad fisica? : <strong>??</strong></p>
+                                            <p>Que actividad realiza? : <strong>??</strong></p>
+                                            <p>Cuantas veces por semana? y cuanto tiempo? : <strong>??</strong></p>
+                                            <p>Actividad Laboral: <strong>??</strong></p>
+                                        {% else %}
+                                            <p>Funcion Intestinal: <strong>{{ user.unaFicha.unaHistoriaPersonal.unaFuncionIntestinal.nombre }}</strong></p>
+                                            <p>Cilco de Sueño: <strong>{{ user.unaFicha.unaHistoriaPersonal.unCiclo.nombre }}</strong></p>
+                                            <p>Realiza actividad fisica? : <strong>{% if user.unaFicha.unaHistoriaPersonal.actividadFisica == 1 %} SI {% else %} NO {% endif %}</strong></p>
+                                            <p>Que actividad realiza? : <strong>{{ user.unaFicha.unaHistoriaPersonal.queActividad }}</strong></p>
+                                            <p>Cuantas veces por semana? y cuanto tiempo? : <strong>{{ user.unaFicha.unaHistoriaPersonal.cuandoCuantas }}</strong></p>
+                                            <p>Actividad Laboral: <strong>{{ user.unaFicha.unaHistoriaPersonal.actividadLaboral }}</strong></p>
+                                        {% endif %}
+                                    </div>
+                               </div>
+                                        
+                            </div>
+                            
+                    </div>
+            </div>
+            <div class="col-xl-4">
+                    <div class="m-portlet m-portlet--bordered-semi m-portlet--full-height ">
+                            <div class="m-portlet__head">
+                                <div class="m-portlet__head-caption">
+                                    <div class="m-portlet__head-title">
+                                        <h3 class="m-portlet__head-text">
+                                            Mediciones
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="m-portlet__head-tools">
+                                    {% if user.unaFicha.unaMedicion is null %}
+                                        <a  href="{{ url('medicion_nuevo', {'id' : user.unaFicha.id })}}" class="btn btn-warning m-btn m-btn--icon m-btn--outline-2x">Completar <i class="la la-plus-circle"></i></a>
+                                    {% else %}
+                                        <a  href="{{ url('medicion_editar', {'idficha' : user.unaFicha.id, 'id' : user.unaFicha.unaMedicion.id })}}" class="btn btn-outline-accent m-btn m-btn--icon m-btn--outline-2x">Editar <i class="la la-plus-circle"></i></a>
+                                    {% endif %}   
+                                </div>
+                            </div>
+                            <div class="m-portlet__body">
+                                <!--begin::Section-->
+                                    <div class="col-xl-12">
+                                        {% if user.unaFicha.unaMedicion is null %}
+                                            <p>Peso: <strong> ?? Kg</strong></p>
+                                            <p>Altura: <strong> ?? Cm</strong></p>
+                                            <p>Peso habitual: <strong> ?? Kg</strong></p>
+                                            <p>Duracion en años: <strong>??</strong></p>
+                                        {% else %}
+                                            <p>Peso: <strong> {{ user.unaFicha.unaMedicion.peso }} Kg</strong></p>
+                                            <p>Altura: <strong> {{ user.unaFicha.unaMedicion.altura }} Cm</strong></p>
+                                            <p>Peso habitual: <strong> {{ user.unaFicha.unaMedicion.pesoHabitual }} Kg</strong></p>
+                                            <p>Duracion en años: <strong>{{ user.unaFicha.unaMedicion.enAnios }}</strong></p>
+                                        {% endif %} 
+                                    </div>
+                                        
+                            </div>
+                            
+                    </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xl-12">
+                    <div class="m-portlet m-portlet--bordered-semi m-portlet--full-height ">
+                            <div class="m-portlet__head">
+                                <div class="m-portlet__head-caption">
+                                    <div class="m-portlet__head-title">
+                                        <h3 class="m-portlet__head-text">
+                                            Historia Alimentaria
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="m-portlet__head-tools">
+                                    {% if user.unaFicha.unaHistoriaAlimentaria is null %}
+                                        <a  href="{{ url('historia_alimentaria_nuevo', {'id': user.unaFicha.id})}}" class="btn btn-warning m-btn m-btn--icon m-btn--outline-2x">Completar <i class="la la-plus-circle"></i></a>
+                                    {% else %}
+                                        <a  href="{{ url('historia_alimentaria_editar',{'idficha': user.unaFicha.id, 'id': user.unaFicha.unaHistoriaAlimentaria.id})}}" class="btn btn-outline-accent m-btn m-btn--icon m-btn--outline-2x">Editar <i class="la la-plus-circle"></i></a>
+                                    {% endif %}  
+                                </div>
+                            </div>
+                            <div class="m-portlet__body">
+                                <!--begin::Section-->
+                                <div class="row">
+                                    {% if user.unaFicha.unaHistoriaAlimentaria is null %}
+                                        <div class="col-xl-6">
+                                            <p>Horario Desayuno: <strong>??</strong></p>
+                                            <p>Horario Almuerzo: <strong>??</strong></p>
+                                            <p>Horario Merienda: <strong>??</strong></p>
+                                            <p>Horario Cena: <strong>??</strong></p>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <p>Alimentos Favoritos: <strong>No Determinado</strong></p>
+                                            <p>Alimentos Rechazados: <strong>No Determinado</strong></p>
+                                            <p>Alergias o Intolerancias: <strong>No Determinado</strong></p>
+                                            <p>Otras Aclaraciones: <strong></strong></p>
+                                        </div>
+                                    {% else %}
+                                        <div class="col-xl-6">
+                                            <p>Horario Desayuno: <strong>{{ user.unaFicha.unaHistoriaAlimentaria.unaHoraDesayuno.nombre }}</strong></p>
+                                            <p>Horario Almuerzo: <strong>{{ user.unaFicha.unaHistoriaAlimentaria.unaHoraAlmuerzo.nombre }}</strong></p>
+                                            <p>Horario Merienda: <strong>{{ user.unaFicha.unaHistoriaAlimentaria.unaHoraMerienda.nombre }}</strong></p>
+                                            <p>Horario Cena: <strong>{{ user.unaFicha.unaHistoriaAlimentaria.unahoraCena.nombre }}</strong></p>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <p>Alimentos Favoritos: <strong>{{ user.unaFicha.unaHistoriaAlimentaria.alimentoFavorito }}</strong></p>
+                                            <p>Alimentos Rechazados: <strong>{{ user.unaFicha.unaHistoriaAlimentaria.alimentoRechazado }}</strong></p>
+                                            <p>Alergias o Intolerancias: <strong>{{ user.unaFicha.unaHistoriaAlimentaria.alergiaIntolerancia }}</strong></p>
+                                            <p>Otras Aclaraciones: <strong>{{ user.unaFicha.unaHistoriaAlimentaria.otrasAclaraiones }}</strong></p>
+                                        </div>
+                                    {% endif %} 
+                                </div>      
+                            </div>
+                            
+                    </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xl-12">
+                    <div class="m-portlet m-portlet--bordered-semi m-portlet--full-height ">
+                            <div class="m-portlet__head">
+                                <div class="m-portlet__head-caption">
+                                    <div class="m-portlet__head-title">
+                                        <h3 class="m-portlet__head-text">
+                                            Historia Clinica
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="m-portlet__head-tools">
+                                    <a  href="{{ url('historia_clinica_patologia_nuevo', {'id': user.unaFicha.unaHistoriaClinica.id})}}" class="btn btn-warning m-btn m-btn--icon m-btn--outline-2x">Agregar Patologia<i class="la la-plus-circle"></i></a>
+                                    <a  href="{{ url('historia_clinica_medicacion_nuevo', {'id': user.unaFicha.unaHistoriaClinica.id})}}" class="btn btn-warning m-btn m-btn--icon m-btn--outline-2x">Agregar Medicacion<i class="la la-plus-circle"></i></a>
+                                </div>
+                            </div>
+                            <div class="m-portlet__body">
+                                <!--begin::Section-->
+                                <div class="col-xl-12">
+                                        <p><strong>Patologias</strong></p>
+                                        <div class="m-section">
+                                                <div class="m-section__content">
+                                                    <table style="text-align:center;" class="table m-table m-table--head-bg-success">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>
+                                                                        Tipo Patologia
+                                                                    </th>
+                                                                    <th>
+                                                                        Aclaracion
+                                                                    </th>
+                                                                    <th>
+                                                                        Operaciones
+                                                                    </th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                {% if (user.unaFicha.unaHistoriaClinica.unasPatologia | length)>0 %}
+                                                                    {% for registro in user.unaFicha.unaHistoriaClinica.unasPatologia %}
+                                                                        <tr>
+                                                                            <td>
+                                                                                <p>{{ registro.unTipo.nombre }}</p>
+                                                                            </td>
+                                                                            <td>
+                                                                                <p>{{ registro.aclaracion }}</p>
+                                                                            </td>
+                                                                            <td>
+                                                                                <a  href="{{ url('historia_clinica_patologia_editar', {'idhistoria': user.unaFicha.unaHistoriaClinica.id,'id': registro.id})}}" class="btn btn-warning m-btn m-btn--icon m-btn--outline-2x">Editar<i class="fa fa-edit"></i></a>
+                                                                                <a  href="{{ url('historia_clinica_patologia_borrar', {'idhistoria': user.unaFicha.unaHistoriaClinica.id,'id': registro.id})}}" class="btn btn-danger m-btn m-btn--icon m-btn--outline-2x"><i class="fa fa-trash"></i></a>
+                                                                            </td>
+                                                                        </tr>
+                                                                     {% endfor %}
+                                                                {% else %}
+                                                                    <tr>
+                                                                        <td colspan="5">
+                                                                            <p style="text-align:center;">No existen elementos</p>
+                                                                        </td>
+                                                                    </tr>
+                                                                {% endif %}
+                                                            </tbody>
+                                                    </table>
+                                                    <small style="color: red;"> * Por favor indicar si padece alguna patologia como ser por ejemplo: Hipertension, Diabetes, Dislipidemia, etc.</small>
+                                                </div>
+                                        </div>
+                                        <p><strong>Medicaciones</strong></p>
+                                        <div class="m-section">
+                                                <div class="m-section__content">
+                                                    <table style="text-align:center;" class="table m-table m-table--head-bg-success">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>
+                                                                        Nombre
+                                                                    </th>
+                                                                    <th>
+                                                                        Dosificacion
+                                                                    </th>
+                                                                    <th>
+                                                                        Operaciones
+                                                                    </th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                {% if (user.unaFicha.unaHistoriaClinica.unasMedicaciones | length)>0 %}
+                                                                    {% for registro in user.unaFicha.unaHistoriaClinica.unasMedicaciones %}
+                                                                        <tr>
+                                                                            <td>
+                                                                                <p>{{ registro.nombre }}</p>
+                                                                            </td>
+                                                                            <td>
+                                                                                <p>{{ registro.dosis }}</p>
+                                                                            </td>
+                                                                            <td>
+                                                                                <a  href="{{ url('historia_clinica_medicacion_editar', {'idhistoria': user.unaFicha.unaHistoriaClinica.id,'id': registro.id})}}" class="btn btn-warning m-btn m-btn--icon m-btn--outline-2x">Editar<i class="fa fa-edit"></i></a>
+                                                                                <a  href="{{ url('historia_clinica_medicacion_borrar', {'idhistoria': user.unaFicha.unaHistoriaClinica.id,'id': registro.id})}}" class="btn btn-danger m-btn m-btn--icon m-btn--outline-2x"><i class="fa fa-trash"></i></a>
+                                                                            </td>
+                                                                        </tr>
+                                                                    {% endfor %}
+                                                                {% else %}
+                                                                    <tr>
+                                                                        <td colspan="5">
+                                                                            <p style="text-align:center;">No existen elementos</p>
+                                                                        </td>
+                                                                    </tr>
+                                                                {% endif %}
+                                                            </tbody>
+                                                    </table>
+                                                </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xl-8">
+                                                <p>Anticedentes Familiares:<strong>{% if user.unaFicha.unaHistoriaClinica.antecedente is not null %} {{ user.unaFicha.unaHistoriaClinica.antecedente }} {% endif %}</strong></p>
+                                                <small style="color: red;"> * Nota: Algun familiar directo(padre / madre o abuelos) padece alguna de las enfermedades listadas anteriormente.</small>
+                                            </div>
+                                            <div class="col-xl-4">
+                                                <a  href="{{ url('historia_clinica_antecedente_nuevo', {'id': user.unaFicha.unaHistoriaClinica.id})}}" class="btn btn-warning m-btn m-btn--icon m-btn--outline-2x btn-block">Editar Antecedentes Familiares <i class="fa fa-edit"></i></a>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        
+                            </div>
+                            
+                    </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

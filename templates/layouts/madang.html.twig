@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    {% include('inc2/meta.html.twig') %}
+    <title>TenTuDieta</title>
+    <!-- style lists -->
+    {% include('inc2/stylesheet.html.twig') %}
+</head>
+<body class="home-page home-version1-page">
+    <!-- loader image before page load starts -->
+    <div class="se-pre-con"></div>
+    <!-- loader image before page load ends -->
+    <!-- main wrapper of the site starts -->
+    <div class="wrapper">
+
+        {% include('inc2/header.html.twig') %}
+
+        {% block banner %}
+
+            {% include('inc2/banner.html.twig') %}
+            
+        {% endblock %}
+        
+
+        <main>
+            {% block body %}
+
+                
+
+            {% endblock %}
+            <!-- ============== how it works block starts ============== -->
+            
+        </main>
+        {% include('inc2/footer.html.twig') %}
+    </div>
+    <!-- main wrapper of the site ends -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    {% include('inc2/javascript.html.twig') %}
+</body>
+</html>

@@ -1,0 +1,83 @@
+{% extends 'layouts/metronic.html.twig' %}
+
+{% block title %}Motivos de Consultas{% endblock %}
+
+{% block body %}
+<div class="m-subheader ">
+        <div class="d-flex align-items-center">
+            <div class="mr-auto">
+                <h3 class="m-subheader__title  m-subheader__title--separator">
+                    Motivos de Consultas
+                </h3>
+            </div>
+        </div>
+    </div>
+    <div class="m-content">
+        <!--Begin::Section-->
+        <div class="row">
+            <div class="col-xl-12">
+                    <div class="m-portlet m-portlet--bordered-semi m-portlet--full-height ">
+                            <div class="m-portlet__head">
+                                <div class="m-portlet__head-caption">
+                                    <div class="m-portlet__head-title">
+                                        <h3 class="m-portlet__head-text">
+                                            Todas los Motivos de Consultas disponibles en el sistema
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="m-portlet__head-tools">
+                                   <a href="{{ url('motivo_consulta_nuevo')}}" class="btn btn-outline-accent m-btn m-btn--icon m-btn--outline-2x">Nuevo <i class="la la-plus-circle"></i></a>
+                                </div>
+                            </div>
+                            <div class="m-portlet__body">
+                                <!--begin::Section-->
+                               
+                                        <div class="m-section">
+                                                <div class="m-section__content">
+                                                    <table style="text-align:center;" class="table m-table m-table--head-bg-success">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>
+                                                                        #
+                                                                    </th>
+                                                                    <th>
+                                                                        Nombre
+                                                                    </th>
+                                                                    <th>
+                                                                        Operaciones
+                                                                    </th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                               {% if (registros | length)>0 %}
+                                                                    {% for registro in registros %}
+                                                                    <tr>
+                                                                        <td>
+                                                                            {{ registro.id }}
+                                                                        </td>
+                                                                        <td>
+                                                                            {{ registro.nombre }}
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="{{ url('motivo_consulta_editar',{'id': registro.id}) }}" class="btn btn-warning m-btn m-btn--icon btn-block">Editar <i class="fa fa-edit"></i></a>
+                                                                            <a href="{{ url('motivo_consulta_borrar',{'id': registro.id}) }}" class="btn btn-danger m-btn m-btn--icon btn-block">Borrar <i class="fa fa-trash"></i></a>
+                                                                        </td>
+                                                                    </tr>
+                                                                    {% endfor %}
+                                                                {% else %}
+                                                                    <tr>
+                                                                        <td colspan="5">
+                                                                            <h3 style="text-align:center;">No existen elementos</h3>
+                                                                        </td>
+                                                                    </tr>
+                                                                {% endif %}
+                                                            </tbody>
+                                                    </table>
+                                                </div>
+                                        </div>
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
